@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 
 var ref = firebase.database();
-
+var markers = [];
 
 
 var mapStyle = [
@@ -55,6 +55,43 @@ function initMap() {
     center: laSalleBajio,
     styles: mapStyle
   });
+
+
+
+
+  firebase.database().ref('markers/').on("value",function(snapshot) {
+    var markersFromFB = snapshot.val();
+
+    snapshot.forEach(function(childSnapshot) {
+      // key will be "ada" the first time and "alan" the second time
+      var key = childSnapshot.key;
+      // childData will be the actual contents of the child
+      var childData = childSnapshot.val();
+
+      googleMarker = new google.maps.Marker({
+            map: map,
+            position: childData.position,
+            icon: childData.icon
+
+          });
+               
+
+      console.log(childData)
+  });
+    // for(var marker in markersFromFB)
+    // {
+    //   googleMarker = new google.maps.Marker({
+    //     marker
+    //   });
+    //   googleMarker.setMap(map);
+    //   markers.push(googleMarker);
+      
+
+    // }
+
+  });
+
+
   var marker = new google.maps.Marker({
     position: laSalleBajio,
     map: map,
