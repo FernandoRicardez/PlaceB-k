@@ -7,8 +7,24 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var firebase = require("firebase");
+
+
 
 var app = express();
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBVHEVDmN4ZkOrS8ENz_1Z6X6txnRFfp5g",
+    authDomain: "place-bk.firebaseapp.com",
+    databaseURL: "https://place-bk.firebaseio.com",
+    projectId: "place-bk",
+    storageBucket: "place-bk.appspot.com",
+    messagingSenderId: "260965813880"
+  };
+  firebase.initializeApp(config);
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

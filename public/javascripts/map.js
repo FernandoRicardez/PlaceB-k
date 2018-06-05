@@ -1,4 +1,18 @@
 
+  var config = {
+    apiKey: "AIzaSyBVHEVDmN4ZkOrS8ENz_1Z6X6txnRFfp5g",
+    authDomain: "place-bk.firebaseapp.com",
+    databaseURL: "https://place-bk.firebaseio.com",
+    projectId: "place-bk",
+    storageBucket: "place-bk.appspot.com",
+    messagingSenderId: "260965813880"
+  };
+  firebase.initializeApp(config);
+
+var ref = firebase.database();
+
+  
+
 var mapStyle = [
   {
     "featureType": "landscape.man_made",
@@ -63,7 +77,14 @@ function initMap() {
   }
 
   
-  
+function insert()
+{
+  firebase.database().ref('users/').set({
+    username: "name",
+    email: "email",
+    profile_picture : "imageUrl"
+  });
+}  
 
   var iconBase = 'images/smallIcons/';
         var icons = {

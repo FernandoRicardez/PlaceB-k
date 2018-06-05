@@ -52,6 +52,7 @@
       </div>
       <div class="well">
         <p>ADS</p>
+        <button onclick="insert()">Clcick me</button>
       </div>
     </div>
   </div>
@@ -67,3 +68,16 @@
     <script type="text/javascript" src="/javascripts/map.js"></script>
 
  
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBVHEVDmN4ZkOrS8ENz_1Z6X6txnRFfp5g",
+    authDomain: "place-bk.firebaseapp.com",
+    databaseURL: "https://place-bk.firebaseio.com",
+    projectId: "place-bk",
+    storageBucket: "place-bk.appspot.com",
+    messagingSenderId: "260965813880"
+  };
+  firebase.initializeApp(config);
+</script>
